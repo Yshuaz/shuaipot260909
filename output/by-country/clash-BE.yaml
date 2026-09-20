@@ -4,19 +4,24 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇮🇷 IR 01 - xiaohe
+- name: 🇧🇪 BE 01 - xiaohe
   type: vless
-  server: simia.northforex.ir
+  server: 64.225.65.116
   port: 8443
-  uuid: 22ac8d19-9eec-493d-a492-e024cdba594b
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
   skip-cert-verify: true
-  servername: simia.northforex.ir
-- name: 🇮🇷 IR 02 - xiaohe
+  servername: cdn8848.776676.xyz
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cdn8848.776676.xyz
+- name: 🇧🇪 BE 02 - xiaohe
   type: vless
-  server: 188.166.49.168
-  port: 2083
+  server: 138.124.25.250
+  port: 443
   uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
   udp: true
   tls: true
@@ -32,14 +37,14 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
+  - 🇧🇪 BE 01 - xiaohe
+  - 🇧🇪 BE 02 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.google.com/generate_204
   interval: 300
   proxies:
-  - 🇮🇷 IR 01 - xiaohe
-  - 🇮🇷 IR 02 - xiaohe
+  - 🇧🇪 BE 01 - xiaohe
+  - 🇧🇪 BE 02 - xiaohe
 rules:
 - MATCH,PROXIES
